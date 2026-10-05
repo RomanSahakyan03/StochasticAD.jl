@@ -148,7 +148,7 @@ function propagate(f,
         return f(args...)
     end
     _captures_triple(f) && throw(ArgumentError("`f` captures a stochastic triple, whose " *
-        "perturbations `propagate` cannot track. Pass it to `propagate` as an argument instead."))
+                        "perturbations `propagate` cannot track. Pass it to `propagate` as an argument instead."))
 
     primal_args = structural_map(get_value, args)
     input_args = keep_deltas isa Val{false} ? primal_args : structural_map(strip_Δs, args)
